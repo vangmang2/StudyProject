@@ -9,4 +9,7 @@ public static class HeroAvatarExtension
         target.transform.localScale = target.transform.localScale.Copy(x: target.transform.localScale.x * -1f);
         return target;
     }
+
+    public static void SetSprite(this SpriteRenderer target, Sprite sprite)
+        => target.sprite = sprite;
 }

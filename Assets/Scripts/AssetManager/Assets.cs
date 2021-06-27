@@ -49,7 +49,7 @@ namespace UnityEngine.Assets
             totalAssetContainer = Resources.Load<TotalAssetContainer>("Total Asset Container");
 
             var spriteList = totalAssetContainer.GetLoader<SpriteContainer>().Assets;
-            spriteList.SetDatasToDictionary(spriteDic);
+            spriteList.SetObjectDatasToDictionary(spriteDic);
         }
         public static Sprite GetSprite(string spriteName)
             => spriteDic[spriteName];

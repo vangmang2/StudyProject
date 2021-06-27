@@ -7,11 +7,13 @@ using Sirenix.Serialization;
 
 using ObjectFieldAlignment = Sirenix.OdinInspector.ObjectFieldAlignment;
 [Serializable]
-public class HeroAvatarSlot
+public class HeroAvatarSlot : INamedObject
 {
     [SerializeField, PreviewField(Alignment = ObjectFieldAlignment.Left), AssetSelector(SearchInFolders = new string[] { "Assets/Sprites/Hero" })]
     Sprite sprite;
 
+    public Sprite GetSprite => sprite;
+
     [ShowInInspector]
-    string spriteName => sprite ? sprite.name : string.Empty;
+    public string name => sprite ? sprite.name : string.Empty;
 }

@@ -7,7 +7,7 @@ using System.Linq;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
 
-public static class CommonUtility 
+public static class CommonUtility
 {
     public static float fixedDeltaTime => Time.fixedDeltaTime * Time.timeScale;
 
@@ -24,7 +24,7 @@ public static class CommonUtility
 
     public static void ForEach<T>(this T[] array, Action<T> callback)
     {
-        foreach(T element in array)
+        foreach (T element in array)
         {
             callback(element);
         }
@@ -47,23 +47,33 @@ public static class CommonUtility
     public static void InterpolateImageAlpha(this Image targetImage, float targetAlpha, float t)
         => targetImage.color = targetImage.color.CopyColor(a: Mathf.Lerp(targetImage.color.a, targetAlpha, t));
 
-    public static void SetDatasToDictionary<T>(this List<T> list, Dictionary<string, T> targetDic) 
-        where T : Object
+    public static void SetDatasToDictionary<T>(this List<T> list, Dictionary<string, T> targetDic)
+        where T : INamedObject
         => list.ForEach(target => targetDic.Set(target));
 
     /// <summary> value의 name을 키로 등록 해준다. </summary>
-    public static void Set<T>(this Dictionary<string, T> dic, T value) 
+    public static void Set<T>(this Dictionary<string, T> dic, T value)
+        where T : INamedObject
+        => dic.Add(value.name, value);
+
+    public static void SetObjectDatasToDictionary<T>(this List<T> list, Dictionary<string, T> targetDic)
+    where T : Object
+    => list.ForEach(target => targetDic.SetObject(target));
+
+    /// <summary> value의 name을 키로 등록 해준다. </summary>
+    public static void SetObject<T>(this Dictionary<string, T> dic, T value)
         where T : Object
         => dic.Add(value.name, value);
+
 
     public static bool IsNullOrEmpty(this string target)
         => string.IsNullOrEmpty(target);
 
-    public static T LoadResource<T>(this string path) 
+    public static T LoadResource<T>(this string path)
         where T : Object
         => Resources.Load<T>($"{Path.GetDirectoryName(path)}/{Path.GetFileNameWithoutExtension(path)}");
 
-    public static Vector2 Copy(this Vector2 v, float? x = null, float? y = null) 
+    public static Vector2 Copy(this Vector2 v, float? x = null, float? y = null)
         => new Vector2(x ?? v.x, y ?? v.y);
 
     public static Vector3 Copy(this Vector3 v, float? x = null, float? y = null, float? z = null)
@@ -82,4 +92,9 @@ public static class CommonUtility
 
     public static Color CopyColor(this Color color, float? r = null, float? g = null, float? b = null, float? a = null)
         => new Color(r ?? color.r, g ?? color.g, b ?? color.b, a ?? color.a);
+}
+
+public interface INamedObject
+{
+    string name { get; }
 }
