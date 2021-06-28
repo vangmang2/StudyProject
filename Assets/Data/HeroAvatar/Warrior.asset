@@ -15,26 +15,47 @@ MonoBehaviour:
   avatarName: Warrior
   headSlots:
   - sprite: {fileID: 21300000, guid: c3d4f595167a5d542833e1b9fabefb9d, type: 3}
+    isDefault: 1
   - sprite: {fileID: 21300000, guid: 3f69582d99e22cb4f9b0de79c923003e, type: 3}
+    isDefault: 0
   - sprite: {fileID: 21300000, guid: 8d9747301ca248848bb16ca4f8f44ea8, type: 3}
+    isDefault: 0
   - sprite: {fileID: 21300000, guid: 458dc10cb1616dc45882420e68f2d104, type: 3}
+    isDefault: 0
   bodySlots:
   - sprite: {fileID: 21300000, guid: 948c07ec9abaf874297d7ac48ed178f0, type: 3}
+    isDefault: 1
   - sprite: {fileID: 21300000, guid: 6514efe714a0384429638a121371fa67, type: 3}
+    isDefault: 0
   legSlots:
   - sprite: {fileID: 21300000, guid: fe0fe5dd4ff6079478512fd58db9d5ab, type: 3}
+    isDefault: 1
   weaponSlots:
   - sprite: {fileID: 21300000, guid: 814ef3cecdca05b49aaaa71de4588d24, type: 3}
+    isDefault: 0
   - sprite: {fileID: 21300000, guid: 4b1b240a3aeb6694ca0ba93edea2d974, type: 3}
+    isDefault: 0
   - sprite: {fileID: 21300000, guid: b45e863d4f650c548a106380fe9fd308, type: 3}
+    isDefault: 0
   - sprite: {fileID: 21300000, guid: 4d797ee6f98e59e4f81db5419b55798c, type: 3}
+    isDefault: 0
   - sprite: {fileID: 21300000, guid: d2f776efb6386254eb7009a57130c781, type: 3}
+    isDefault: 0
   - sprite: {fileID: 21300000, guid: f61c4fe70c727df4595ac03f08fa4ebd, type: 3}
+    isDefault: 0
   - sprite: {fileID: 21300000, guid: 8bd34eb19b849894f9f4b96cf58f7af1, type: 3}
+    isDefault: 0
   - sprite: {fileID: 21300000, guid: 2fc8fc5e13d9e8145a6ba116d5920a4f, type: 3}
+    isDefault: 0
   - sprite: {fileID: 21300000, guid: dc04297ca7289ba4ab7a02b037a9ebc3, type: 3}
+    isDefault: 0
   - sprite: {fileID: 21300000, guid: afcc47a6bef76d949addf5391486d0a9, type: 3}
+    isDefault: 0
   - sprite: {fileID: 21300000, guid: 1bfc2933abf729b4291564fe25fb07a4, type: 3}
+    isDefault: 0
   - sprite: {fileID: 21300000, guid: 20f50b954728ba545a55517573108887, type: 3}
+    isDefault: 0
   - sprite: {fileID: 21300000, guid: 8d30beba2494a954aaa8079e0e8d075c, type: 3}
+    isDefault: 1
   - sprite: {fileID: 21300000, guid: 6687b1e86254f634a9538ba91823e7d5, type: 3}
+    isDefault: 0

@@ -27,10 +27,15 @@ public class HeroAvatarData : ScriptableObject
     [SerializeField, TableColumnWidth(57), TableList(), VerticalGroup(), LabelText("Weapon")]
     List<HeroAvatarSlot> weaponSlots = new List<HeroAvatarSlot>();
 
-    public Sprite spriteDefaultHead => headSlots[0].GetSprite;
-    public Sprite spriteDefaultLeg => legSlots[0].GetSprite;
-    public Sprite spriteDefaultWeapon => weaponSlots[0].GetSprite;
-    public Sprite spriteDefaultBody => bodySlots[0].GetSprite;
+    [SerializeField]
+    Vector2 weaponLeftPos, weaponRightPos;
+    public Vector2 GetWeaponLeftPos => weaponLeftPos;
+    public Vector2 GetWeaponRightPos => weaponRightPos;
+
+    public Sprite spriteDefaultHead => headSlots.Find(slot => slot.isDefault).GetSprite;
+    public Sprite spriteDefaultLeg => legSlots.Find(slot => slot.isDefault).GetSprite;
+    public Sprite spriteDefaultWeapon => weaponSlots.Find(slot => slot.isDefault).GetSprite;
+    public Sprite spriteDefaultBody => bodySlots.Find(slot => slot.isDefault).GetSprite;
 
     readonly Dictionary<string, HeroAvatarSlot> headSpriteSlotDic = new Dictionary<string, HeroAvatarSlot>();
     readonly Dictionary<string, HeroAvatarSlot> bodySpriteSlotDic = new Dictionary<string, HeroAvatarSlot>();
@@ -132,4 +137,25 @@ public class HeroAvatarData : ScriptableObject
                 return spriteDefaultLeg;
         }
     }
+
+    public Vector2 GetWeaponPos(HeroDirection direction, out Vector3 scale)
+    {
+        switch (direction)
+        {
+            case HeroDirection.forward:
+            case HeroDirection.forwardRight:
+            case HeroDirection.backwardRight:
+                scale = new Vector3(1f, 1f, 1f);
+                return weaponRightPos;
+            case HeroDirection.backward:
+            case HeroDirection.backwardLeft:
+            case HeroDirection.forwardLeft:
+                scale = new Vector3(-1f, 1f, 1f);
+                return weaponLeftPos;
+            default:
+                scale = new Vector3(1f, 1f, 1f);
+                return weaponRightPos;
+        }
+    }
+
 }

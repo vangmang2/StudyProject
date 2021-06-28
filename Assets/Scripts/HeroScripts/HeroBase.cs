@@ -32,6 +32,7 @@ public class HeroBase : MonoBehaviour
         UpdateHead();
         UpdateBody();
         UpdateLeg();
+        UpdateWeapon();
 
         void UpdateHead()
         {
@@ -54,6 +55,12 @@ public class HeroBase : MonoBehaviour
             trLegLeft.localScale = scale;
             srLegRight.SetSprite(legSprite);
             trLegRight.localScale = scale;
+        }
+
+        void UpdateWeapon()
+        {
+            trWeapon.localPosition = heroAvatarData.GetWeaponPos(direction, out Vector3 scale);
+            trWeapon.localScale = scale;
         }
     }
 
