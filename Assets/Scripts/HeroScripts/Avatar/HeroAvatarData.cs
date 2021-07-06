@@ -29,6 +29,8 @@ public class HeroAvatarData : ScriptableObject
 
     [SerializeField]
     Vector2 weaponLeftPos, weaponRightPos;
+    [SerializeField]
+    int weaponForwardOrder, weaponBackwardOrder;
     public Vector2 GetWeaponLeftPos => weaponLeftPos;
     public Vector2 GetWeaponRightPos => weaponRightPos;
 
@@ -138,22 +140,35 @@ public class HeroAvatarData : ScriptableObject
         }
     }
 
-    public Vector2 GetWeaponPos(HeroDirection direction, out Vector3 scale)
+    public Vector2 GetWeaponPos(HeroDirection direction, out Vector3 scale, out int sortingOrder)
     {
         switch (direction)
         {
             case HeroDirection.forward:
             case HeroDirection.forwardRight:
+                scale = new Vector3(1f, 1f, 1f);
+                sortingOrder = 1;
+                return weaponRightPos;
+
             case HeroDirection.backwardRight:
                 scale = new Vector3(1f, 1f, 1f);
+                sortingOrder = 5;
                 return weaponRightPos;
+
             case HeroDirection.backward:
             case HeroDirection.backwardLeft:
+                scale = new Vector3(-1f, 1f, 1f);
+                sortingOrder = 5;
+                return weaponLeftPos;
+
             case HeroDirection.forwardLeft:
                 scale = new Vector3(-1f, 1f, 1f);
+                sortingOrder = 1;
                 return weaponLeftPos;
+
             default:
                 scale = new Vector3(1f, 1f, 1f);
+                sortingOrder = 5;
                 return weaponRightPos;
         }
     }

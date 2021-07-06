@@ -383,6 +383,8 @@ MonoBehaviour:
   trLegLeft: {fileID: 6513671270792397108}
   trLegRight: {fileID: 6724166286595917476}
   trWeapon: {fileID: 2364853594142251877}
+  trPivot: {fileID: 4450071194312152214}
+  tempDummy: {fileID: 0}
 --- !u!1 &7617198557041985626
 GameObject:
   m_ObjectHideFlags: 0
