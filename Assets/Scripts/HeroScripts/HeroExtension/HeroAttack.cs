@@ -7,6 +7,9 @@ public static class HeroAttack
 {
     public static void Attack(this HeroBase hero, ITarget target, Action enemyEliminatedCallback)
     {
+        if (target == null)
+            return;
+
         target.ReduceHitpoints(hero);
         if (target.hitpoints <= 0f)
             enemyEliminatedCallback();

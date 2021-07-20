@@ -31,8 +31,6 @@ public class HeroAvatarData : ScriptableObject
     Vector2 weaponLeftPos, weaponRightPos;
     [SerializeField]
     int weaponForwardOrder, weaponBackwardOrder;
-    public Vector2 GetWeaponLeftPos => weaponLeftPos;
-    public Vector2 GetWeaponRightPos => weaponRightPos;
 
     public Sprite spriteDefaultHead => headSlots.Find(slot => slot.isDefault).GetSprite;
     public Sprite spriteDefaultLeg => legSlots.Find(slot => slot.isDefault).GetSprite;

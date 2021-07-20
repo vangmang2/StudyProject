@@ -65,7 +65,6 @@ public static class CommonUtility
         where T : Object
         => dic.Add(value.name, value);
 
-
     public static bool IsNullOrEmpty(this string target)
         => string.IsNullOrEmpty(target);
 

@@ -333,7 +333,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4450071194312152214}
-  - component: {fileID: 6001056158216601372}
+  - component: {fileID: 270668077200027350}
+  - component: {fileID: 1352645081726745374}
+  - component: {fileID: 4056853648514106506}
   m_Layer: 0
   m_Name: Warrior
   m_TagString: Untagged
@@ -360,7 +362,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6001056158216601372
+--- !u!114 &270668077200027350
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -369,7 +371,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4450071194312152215}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e655c827a234ef408c1fd232bb4d079, type: 3}
+  m_Script: {fileID: 11500000, guid: a66a57eef73d68d459d7390e973e638f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   heroAvatarData: {fileID: 11400000, guid: 5571117cd37d44b448c03abd141a2c10, type: 2}
@@ -384,7 +386,39 @@ MonoBehaviour:
   trLegRight: {fileID: 6724166286595917476}
   trWeapon: {fileID: 2364853594142251877}
   trPivot: {fileID: 4450071194312152214}
-  tempDummy: {fileID: 0}
+  animator: {fileID: 1352645081726745374}
+--- !u!114 &1352645081726745374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4450071194312152215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2df10b635861e4c448445e5a2c4f572c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 4056853648514106506}
+--- !u!95 &4056853648514106506
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4450071194312152215}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9f01bd731fb612047af22d4ca19e75e3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7617198557041985626
 GameObject:
   m_ObjectHideFlags: 0

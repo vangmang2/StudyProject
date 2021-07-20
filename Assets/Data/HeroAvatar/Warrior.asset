@@ -61,3 +61,5 @@ MonoBehaviour:
     isDefault: 0
   weaponLeftPos: {x: -0.115, y: 0.092}
   weaponRightPos: {x: 0.115, y: 0.092}
+  weaponForwardOrder: 0
+  weaponBackwardOrder: 0

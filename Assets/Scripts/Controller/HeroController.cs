@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HeroController : MonoBehaviour
 {
-    [SerializeField] HeroBase heroBase;
+    [SerializeField] Warrior heroBase;
     [SerializeField] Joystick joystick;
     [SerializeField] UIButton uiButton;
 

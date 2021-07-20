@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using System;
 
 public class HeroBase : MonoBehaviour, ITarget, IMovement, IDamageCauser
 {
-    [BoxGroup("Avatar", centerLabel: true), SerializeField] HeroAvatarData heroAvatarData;
+    [BoxGroup("Avatar", centerLabel: true), SerializeField] protected HeroAvatarData heroAvatarData;
     [BoxGroup("Avatar"), SerializeField] SpriteRenderer srHead, srBody, srLegLeft, srLegRight, srWeapon;
     [BoxGroup("Avarar"), SerializeField] Transform trHead, trBody, trLegLeft, trLegRight, trWeapon, trPivot;
 
@@ -16,16 +17,7 @@ public class HeroBase : MonoBehaviour, ITarget, IMovement, IDamageCauser
     public float attackableRange => 0.5f;
     public float damage => 10f;
 
-
-    float attackDelay = 0.5f;
-    float currentAttackDelay;
-    bool canMove;
-    ITarget target;
-
-    public void SetTarget(ITarget target)
-    {
-        this.target = target;
-    }
+    protected virtual void Init() { }
 
     public void InitAvatar()
     {
@@ -40,39 +32,8 @@ public class HeroBase : MonoBehaviour, ITarget, IMovement, IDamageCauser
     {
         heroAvatarData.InitAvatarData();
         InitAvatar();
+        Init();
     }
-
-    void Update()
-    {
-        if (canMove)
-        {
-            this.MoveToTarget(target, attackableRange, out float distance);
-
-            if (target != null && distance <= attackableRange)
-            {
-                currentAttackDelay += Time.deltaTime;
-                if (currentAttackDelay >= attackDelay)
-                {
-                    currentAttackDelay = 0f;
-
-                    this.Attack(target, () =>
-                    {
-                        target = null;
-                        UpdateAvatarView(-90f);
-                    });
-                }
-            }
-            else
-                currentAttackDelay = 0f;
-        }
-        else
-        {
-            UpdateAvatarView(-90f);
-        }
-    }
-
-    public void EnableMoveToTarget(bool enable)
-        => canMove = enable;
 
     public void UpdateAvatarView(float deg)
     {
